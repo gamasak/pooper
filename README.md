@@ -1,2 +1,1 @@
 # pooper
-Notificator
