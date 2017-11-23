@@ -4,6 +4,6 @@ var app = express();
 
 app.use(function(request, response) {
     console.log("In comes a request to: " + request.url);
-    response.end("Hello, world!");
+    response.end("Hello, gamasak!");
 });
 http.createServer(app).listen(process.env.PORT || 8000);
