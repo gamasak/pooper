@@ -2,6 +2,7 @@
   "name": "pooper",
   "author": "gamasak",
   "private": true,
+  "main": "pooper",
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js"
