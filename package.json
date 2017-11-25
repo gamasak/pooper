@@ -4,8 +4,7 @@
   "private": true,
   "main": "pooper",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js"
+    "start": "node index.js"
   },
   "dependencies": {
     "express": "^4.16.2"
