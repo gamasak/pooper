@@ -2,6 +2,7 @@
   "name": "pooper",
   "author": "gamasak",
   "private": true,
+  "version": "0.1.0",
   "main": "pooper",
   "scripts": {
     "start": "node index.js"
@@ -9,5 +10,9 @@
   "dependencies": {
     "express": "^4.16.2"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gamasak/pooper"
+  }
 }
