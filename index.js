@@ -1,9 +1,9 @@
 var express = require("express");
-var http = require("http");
 var app = express();
+var dao = require('./app/dao/dao');
+var port = process.env.PORT || 8000;
+require('./app/routes/routes')(app, dao);
 
-app.use(function(request, response) {
-    console.log("In comes a request to: " + request.url);
-    response.end("Hello, gamasak!");
+app.listen(port, function(){
+	console.log("gamasak listens to port: ", port);
 });
-http.createServer(app).listen(process.env.PORT || 8000);
