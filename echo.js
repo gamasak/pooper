@@ -1,5 +1,6 @@
 var http = require('http');
 var sockjs = require('sockjs');
+var spooler = require('./app/spooler/spooler');
 //var node_static = require('node-static');
 
 // 1. Echo sockjs server
@@ -9,7 +10,7 @@ var sockjs_echo = sockjs.createServer(sockjs_opts);
 sockjs_echo.on('connection', function(conn) {
     conn.on('data', function(message) {
         conn.write(message);
-        console.log(message);
+        spooler(message);
     });
 });
 
