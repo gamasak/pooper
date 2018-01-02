@@ -1,14 +1,21 @@
 
 'use strict';
-module.exports = function(messageType){
-    var glob = require( 'glob' )
-        , path = require( 'path' );
-    glob.sync( './app/spooler/*.js' ).forEach( function( file ) {
-        var pooper = require( path.resolve( file ) );
-        if(pooper.type) {
-            if(pooper.type.trim() === messageType.trim()) {
-                console.log(pooper.type);
-            }
+module.exports = (function(){
+
+    let eventTypes = new Map();
+
+    return {
+        init: () => {
+            var glob = require( 'glob' )
+                , path = require( 'path' );
+            glob.sync( './app/spooler/events/*.js' ).forEach( function( file ) {
+                let eventType = require( path.resolve( file ) );
+                let {key, value} = eventType.init();
+                eventTypes.set(key, value);
+            });
+        },
+        eventPool: (messageType) => {
+            eventTypes.get(messageType);
         }
-    });
-};
+    }
+}());
