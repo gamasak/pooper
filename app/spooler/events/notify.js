@@ -8,8 +8,8 @@ module.exports = (() => {
         bind: (pipeEnd) => {
 
         },
-        init: () => {
-            return { [this.type]: this.activate }
+        init: function() {
+            return [ this.type, this.activate ];
         }
 
     }
