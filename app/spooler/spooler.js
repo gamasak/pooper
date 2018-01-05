@@ -14,7 +14,11 @@ module.exports = (function(){
             });
         },
         eventPool: (messageType, connection) => {
-            eventTypes.get(messageType)(connection);
+            if(eventTypes.get(messageType) && typeof eventTypes.get(messageType) === "function") {
+                eventTypes.get(messageType)(connection);
+            } else {
+                // throw new websocketMessageException('InvalidMConnectionMessage'); //write exception handling
+            }
         }
     }
 }());
