@@ -12,8 +12,7 @@ spooler.init();
 
 sockjs_echo.on('connection', function(conn) {
     conn.on('data', function(message) {
-        conn.write(message);
-        spooler.eventPool(message);
+        spooler.eventPool(message, conn);
     });
 });
 

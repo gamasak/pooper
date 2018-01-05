@@ -13,9 +13,8 @@ module.exports = (function(){
                 eventTypes.set(key, value);
             });
         },
-        eventPool: (messageType) => {
-            let activate = eventTypes.get(messageType);
-            activate();
+        eventPool: (messageType, connection) => {
+            eventTypes.get(messageType)(connection);
         }
     }
 }());
