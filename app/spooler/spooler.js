@@ -15,7 +15,7 @@ module.exports = (function(){
         },
         eventPool: (messageType, connection) => {
             if(eventTypes.get(messageType) && typeof eventTypes.get(messageType) === "function") {
-                eventTypes.get(messageType)(connection);
+                eventTypes.get(messageType).call(null, connection);
             } else {
                 // throw new websocketMessageException('InvalidMConnectionMessage'); //write exception handling
             }
